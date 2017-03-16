@@ -20,5 +20,6 @@
 
   <modules>
     <module>beosbank-utils</module>
-  </modules>
+    <module>beosbank-forge-demo</module>  
+</modules>
 </project>
