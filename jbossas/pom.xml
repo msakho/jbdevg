@@ -6,9 +6,8 @@
     <artifactId>jbdevg-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <groupId>com.beosbank.jbdevg</groupId>
+  <groupId>com.beosbank.jbdevg.jbossas</groupId>
   <artifactId>jbossas</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging> 
  <name>jbossas</name>
   <url>http://maven.apache.org</url>
@@ -18,7 +17,8 @@
   </properties>
 
   <modules>
-    <module>beosbank-dao</module>
+    <module>beosbank-core</module>
     <module>beosbank-web</module>
+    <module>beosbank-dao</module>
   </modules>
 </project>
