@@ -25,34 +25,18 @@ public class MoneyTransferViewController implements Serializable {
 	
 	private MoneyTransfert transfert;
 	
-	public MoneyTransferViewController() {
-		
-	}
-	
-	
+
 	@PostConstruct
     public void init() {
-        countries  = new HashMap<String, String>();
-        countries.put("USA", "USA");
-        countries.put("France", "France");
-        countries.put("UK", "UK");
-        countries.put("Brazil", "Brazil");
-        countries.put("Cameroon", "Cameroon");
-        countries.put("India", "India");
-         
+        //Initialize countries and currencies list
+		initCountries();
+        initCountriesCurrencies();
         
-        currencies  = new HashMap<String, String>();
-        currencies.put("USA", "USD");
-        currencies.put("France", "EUR");
-        currencies.put("UK", "GBP");
-        currencies.put("Brazil", "BRL");
-        currencies.put("Cameroon", "XAF");
-        currencies.put("India", "INR");
-        
-        //Load Transfer data from session if any
-        getTransfert();
+        //Load Money Transfer data from session if any
+        getMoneyTransfertDataFromSessionOrCreateNew();
         
 	}
+
 	
 	
 	public void onSenderCountryChanged(){
@@ -62,8 +46,7 @@ public class MoneyTransferViewController implements Serializable {
 			transfert.setSenderCurrencyCode(currency);
 		}
 		System.out.println("MoneyTransferViewController.onReceipientCountryChanged()" +senderCountry);
-		HttpServletRequest request= ( HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-	    request.getSession().setAttribute("transfert", transfert);
+		getSession().setAttribute("transfert", transfert);
 		
 	}
 	
@@ -75,17 +58,20 @@ public class MoneyTransferViewController implements Serializable {
 			transfert.setReceiverCurrencyCode(currency);
 		}
 		System.out.println("MoneyTransferViewController.onReceipientCountryChanged()" +destinationCountry);
-		HttpServletRequest request= ( HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-	    request.getSession().setAttribute("transfert", transfert);
+		getSession().setAttribute("transfert", transfert);
 		
 	}
 	
 	
 	
+	private HttpSession getSession(){
+		HttpServletRequest request= ( HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		return request.getSession();
+	}
+	
 	
 	
 	public String onFlowProcess(FlowEvent event) {
-			System.out.println("MoneyTransferViewController.onFlowProcess()");
 			System.out.println("MoneyTransferViewController.onFlowProcess() "+transfert);
             return event.getNewStep();
     }
@@ -95,26 +81,50 @@ public class MoneyTransferViewController implements Serializable {
 		System.out.println(".sendMoney() ") ;
 	}
 	
-	public MoneyTransfert getTransfert() {
-		if(transfert==null){
-			HttpServletRequest request= ( HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		    HttpSession session = request.getSession();
-		    setTransfert((MoneyTransfert)session.getAttribute("transfert"));
+	public MoneyTransfert getMoneyTransfertDataFromSessionOrCreateNew() {
+		    HttpSession session = getSession();
+		    transfert = (MoneyTransfert)session.getAttribute("transfert");
 		    if(transfert==null){
-		    	setTransfert(new MoneyTransfert());
+		    	transfert=new MoneyTransfert();
+		    	session.setAttribute("transfert",this.transfert);
 		    }
-		}
 		return transfert;
 	}
 	
 	
 	public void setTransfert(MoneyTransfert transfert) {
 		this.transfert = transfert;
-		HttpServletRequest request= ( HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-	    HttpSession session = request.getSession();
+	    HttpSession session = getSession();
 	    session.setAttribute("transfert",this.transfert);
-		System.out.println("MoneyTransferViewController.setTransfert() called with "+transfert +" SessionID="+session.getId());
 	}
+	
+
+	public MoneyTransfert getTransfert() {
+		return transfert;
+	}
+
+	
+	
+	private void initCountriesCurrencies() {
+		currencies  = new HashMap<String, String>();
+        currencies.put("USA", "USD");
+        currencies.put("France", "EUR");
+        currencies.put("UK", "GBP");
+        currencies.put("Brazil", "BRL");
+        currencies.put("Cameroon", "XAF");
+        currencies.put("India", "INR");
+	}
+
+	private void initCountries() {
+		countries  = new HashMap<String, String>();
+        countries.put("USA", "USA");
+        countries.put("France", "France");
+        countries.put("UK", "UK");
+        countries.put("Brazil", "Brazil");
+        countries.put("Cameroon", "Cameroon");
+        countries.put("India", "India");
+	}
+	
 	
 	public Map<String, String> getCountries() {
 		return countries;

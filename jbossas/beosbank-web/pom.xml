@@ -80,6 +80,8 @@
                 <artifactId>jboss-as-maven-plugin</artifactId>
                 <version>7.9.Final</version>
                 <configuration>
+                	<hostname>127.0.0.1</hostname>
+                	<port>9999</port>
                     <domain>
                         <server-groups>
                             <server-group>dev03</server-group>
