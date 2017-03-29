@@ -18,7 +18,10 @@
 
   <modules>
     <module>beosbank-core</module>
-    <module>beosbank-web</module>
     <module>beosbank-dao</module>
+    <module>beosbank-login-module</module>
+    <module>beosbank-web</module>
+    <module>beosbank-web-jpa</module>
+    <module>beosbank-web-security</module>
   </modules>
 </project>
