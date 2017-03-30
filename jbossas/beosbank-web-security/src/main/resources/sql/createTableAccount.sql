@@ -37,7 +37,9 @@ CREATE TABLE `T_ACCOUNT` (
 
 LOCK TABLES `T_ACCOUNT` WRITE;
 /*!40000 ALTER TABLE `T_ACCOUNT` DISABLE KEYS */;
-INSERT INTO `T_ACCOUNT` VALUES (1,'demo','demo1234','Customer'),(2,'jboss','jboss','Admin'),(3,'guest1','guest1',NULL);
+INSERT INTO `T_ACCOUNT` VALUES (1,'demo','demo1234','Customer'),
+(2,'jboss','jboss','Admin'),
+(3,'guest1','guest1',NULL);
 /*!40000 ALTER TABLE `T_ACCOUNT` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

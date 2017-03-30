@@ -20,7 +20,6 @@ public class MoneyTransferClusteredStatefullBean implements IMoneyTransfertEjb {
 	
 	@Override
 	public long addMoneyTransfer(MoneyTransfert mt) {
-		
 		entityManager.persist(mt);
 		return mt.getId();
 	}

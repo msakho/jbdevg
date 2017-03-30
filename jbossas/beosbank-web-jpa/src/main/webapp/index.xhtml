@@ -14,6 +14,7 @@
      	<p>JBoss Instance:<b style="color:blue"> #{mtcStatelessEjb.jbossInstanceName}</b></p>
      
  		<h:form>
+ 		<p:growl id="messages" showDetail="true" sticky="true" /> 
 		<p:wizard id="moneyTransfertWorkflow" flowListener="#{mtvcBean.onFlowProcess}">
         <p:tab id="transfertTab" title="Transfer Details" >
             <p:panel header="Transfer Details" >
@@ -83,7 +84,7 @@
             </p:panel>	
              <br></br>	 
 		
-		 <p:commandButton value="Send Money Transfer"   action="#{mtvcBean.sendMoney}" icon="ui-icon-check" />
+		 <p:commandButton value="Send Money Transfer"   action="#{mtvcBean.sendMoney}" icon="ui-icon-check" update="messages" />
 		</p:tab> 
        </p:wizard>
        

@@ -1,12 +1,14 @@
 package com.beosbank.jbdevg.jbossas.beans;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -100,11 +102,23 @@ public class MoneyTransferViewController implements Serializable {
 		if(ref>0){  //SUCCESS
 			
 			//Remove the transaction from session
+			BigDecimal sentAmount = transfert.getAmountExcludingFees();
+			MoneyTransfert newRequest= new MoneyTransfert();
+			newRequest.setSender(transfert.getSender());
+			setTransfert(newRequest);
+			
+			//clear the transaction object so user can send a new one
 			//Build return message.
 			//display a message to user to confirm transaction
-			//clear the transaction object so user can send a new one
+			FacesContext context = FacesContext.getCurrentInstance();
+	         
+			context.addMessage(null, new FacesMessage("Successful",  "MoneyTransfert Request Completed with Reference: #" + ref +" Amount="+sentAmount +" "+transfert.getSenderCurrencyCode()) );
+			
 		}
 		else{
+			
+			FacesContext context = FacesContext.getCurrentInstance();
+	        context.addMessage(null, new FacesMessage("Error",  "Error while sending your money transfert") );
 			
 			//display an error message to user if any error 
 
