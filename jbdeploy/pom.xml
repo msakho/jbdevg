@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.beosbank.jbdevg</groupId>
-    <artifactId>jbdevg-parent</artifactId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
-  <groupId>com.beosbank.jbdevg.jbdeploy</groupId>
-  <artifactId>jbdeploy</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>jbdeploy</name>
-  <url>http://maven.apache.org</url>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.beosbank.jbdevg</groupId>
+		<artifactId>jbdevg-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>com.beosbank.jbdevg.jbdeploy</groupId>
+	<artifactId>jbdeploy</artifactId>
+	<packaging>pom</packaging>
+	<name>jbdeploy</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <undertow.version>2.0.0.Alpha1</undertow.version>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<undertow.version>2.0.0.Alpha1</undertow.version>
+		<undertow.resteasy.version>3.1.2.Final</undertow.resteasy.version>
+	</properties>
 
 
-  <modules>
-    <module>beosbank-undertow-labs</module>
-    <!--<module>undertow-lb</module>
-    <module>wildfly-swarm</module>-->  
-</modules>
+	<modules>
+		<module>beosbank-undertow-labs</module>
+		<module>beosbank-undertow-service</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.undertow</groupId>
+			<artifactId>undertow-core</artifactId>
+			<version>${undertow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.undertow</groupId>
+			<artifactId>undertow-servlet</artifactId>
+			<version>${undertow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.undertow</groupId>
+			<artifactId>undertow-websockets-jsr</artifactId>
+			<version>${undertow.version}</version>
+		</dependency>
+	</dependencies>
 </project>
