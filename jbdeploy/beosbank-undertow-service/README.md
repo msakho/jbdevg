@@ -1,11 +1,15 @@
-ttp  http://localhost:8080/beosbank-undertow-service/api/MoneyTransfer/1
+**Test the service using 
+
+http  http://localhost:8080/beosbank-undertow-service/api/MoneyTransfer/1
+
+
 HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Type: application/json
 Date: Tue, 11 Apr 2017 23:16:43 GMT
 Set-Cookie: JSESSIONID=BWQN5v63IZA3LnVF6QI2aM6HNGWLqPRTamEMy4m_; path=/beosbank-undertow-service
 Transfer-Encoding: chunked
-
+```json
 {
     "amountExcludingFees": 100.0,
     "amountExcludingFeesInReceiverCurrency": null,
@@ -47,3 +51,4 @@ Transfer-Encoding: chunked
     "vatRate": null,
     "withdrawalDate": null
 }
+```
