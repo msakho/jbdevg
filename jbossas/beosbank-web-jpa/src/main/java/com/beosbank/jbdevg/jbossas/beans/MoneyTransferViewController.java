@@ -101,13 +101,13 @@ public class MoneyTransferViewController implements Serializable {
 		//Handle result
 		if(ref>0){  //SUCCESS
 			
-			//Remove the transaction from session
+			//clear the transaction object so user can send a new one
 			BigDecimal sentAmount = transfert.getAmountExcludingFees();
 			MoneyTransfert newRequest= new MoneyTransfert();
-			newRequest.setSender(transfert.getSender());
+			
+			//Remove the transaction from session
 			setTransfert(newRequest);
 			
-			//clear the transaction object so user can send a new one
 			//Build return message.
 			//display a message to user to confirm transaction
 			FacesContext context = FacesContext.getCurrentInstance();
