@@ -9,9 +9,12 @@ import io.undertow.servlet.api.DeploymentInfo;
 public class MoneyTransferServer  {
  public static void main(String[]args){
 	 
+	 //Get Port
+	 String host="0.0.0.0";
+	 int port = Integer.parseInt(System.getProperty("port"));
 	 //Create the JAXRS Server
 	  UndertowJaxrsServer server = new UndertowJaxrsServer();
-      Undertow.Builder serverBuilder = Undertow.builder().addHttpListener(8080, "0.0.0.0");
+      Undertow.Builder serverBuilder = Undertow.builder().addHttpListener(port, host);
       server.start(serverBuilder);
       
       //Create the deployment
@@ -31,5 +34,7 @@ public class MoneyTransferServer  {
        
        //Deploy the API 
        server.deploy(di);
+  	  System.out.println("Undertow MoneyTransfert started on "+host+":"+port);
+
  };
 }

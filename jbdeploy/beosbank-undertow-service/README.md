@@ -4,15 +4,22 @@
  Author: elvadas Nono
  Level: Intermediate
  Technologies: Undertow CDI, RestEasy, JPA
- Summary: This directory contains various quickstart projects using [Undertow](http://undertow.io/).
+ Summary: [Undertow](http://undertow.io/).
  Source: <https://github.com/nelvadas/jbdevg/>
 
 
 How to run the quickstart
  ======================================================
+ Build the project using mvn test 
 
-http  <http://localhost:8080/beosbank-undertow-service/api/MoneyTransfer/1>
+The application start the undertow server on port 8080
 
+To customize the starting port use  mvn test -Dundertow.port=8082
+
+
+[http](https://httpie.org/)  <http://localhost:8080/beosbank-undertow-service/api/MoneyTransfer/1>
+
+curl <http://localhost:8082/beosbank-undertow-service/api/MoneyTransfer/{id}>
 
 HTTP/1.1 200 OK
 Connection: keep-alive
