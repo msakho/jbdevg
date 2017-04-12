@@ -1,6 +1,17 @@
-**Test the service using 
+ Building Microservices using Undertow
+======================================
+ 
+ Author: elvadas Nono
+ Level: Intermediate
+ Technologies: Undertow CDI, RestEasy, JPA
+ Summary: This directory contains various quickstart projects using [Undertow](http://undertow.io/).
+ Source: <https://github.com/nelvadas/jbdevg/>
 
-http  http://localhost:8080/beosbank-undertow-service/api/MoneyTransfer/1
+
+How to run the quickstart
+ ======================================================
+
+http  <http://localhost:8080/beosbank-undertow-service/api/MoneyTransfer/1>
 
 
 HTTP/1.1 200 OK
