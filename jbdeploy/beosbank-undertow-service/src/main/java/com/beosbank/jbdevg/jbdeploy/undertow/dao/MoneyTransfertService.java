@@ -15,7 +15,7 @@ import com.beosbank.jbdevg.jbdeploy.undertow.entities.MoneyTransfert;
 @SessionScoped
 public class MoneyTransfertService implements IMoneyTransfertService,Serializable {
 	private static final long serialVersionUID = 1L;
-	static  EntityManagerFactory emf=Persistence.createEntityManagerFactory("beosbank-mt-unit");
+	static  EntityManagerFactory emf= null;
     EntityManager em;
     
 	
@@ -26,6 +26,9 @@ public class MoneyTransfertService implements IMoneyTransfertService,Serializabl
 	@PostConstruct
 	public void init(){
 		System.out.println("MoneyTransfertService.init()");
+		if(emf== null || !emf.isOpen()){
+			emf=Persistence.createEntityManagerFactory("beosbank-mt-unit");
+		}
 		em=emf.createEntityManager();
 	}
 	

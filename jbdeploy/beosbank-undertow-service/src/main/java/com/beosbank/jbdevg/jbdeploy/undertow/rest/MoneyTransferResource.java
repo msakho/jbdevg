@@ -21,20 +21,22 @@ public class MoneyTransferResource {
    public MoneyTransferResource(){
    }
 
+   /**
+    * 
+    * @param id: Money Transfer Identifier
+    * @return MoneyTransfert JSON content
+    * Example Call         
+    *  //http://localhost:8080/beosbank-undertow-service/api/MoneyTransfer/2
+
+    */
 	@GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public MoneyTransfert getMoneyTransferById(@PathParam("id") Long id){
         MoneyTransfert mt = dao.getMoneyTransfertById(id);
        return mt;
-        //http://localhost:8080/beosbank-undertow-service/api/MoneyTransfer/2
     }
 
-	
-    
-    
-    //installation with maven exec
-    //http://www.mastertheboss.com/jboss-web/jbosswebserver/undertow-web-server-tutorial
     	
 	 public IMoneyTransfertService getDao() {
 			return dao;
