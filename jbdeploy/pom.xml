@@ -23,6 +23,7 @@
 	<modules>
 		<module>beosbank-undertow-labs</module>
 		<module>beosbank-undertow-service</module>
+		<module>beosbank-web-swarm</module>
 	</modules>
 
 	<dependencies>
@@ -50,14 +51,6 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
-        <executions>
-          <execution>
-            <phase>test</phase>
-            <goals>
-              <goal>java</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 	</plugins>
 	</pluginManagement>
