@@ -26,5 +26,6 @@
     <module>jbds</module>
     <module>jbossas</module>
     <module>jbdeploy</module>
-  </modules>
+   <module>jbdatagrid</module>  
+</modules>
 </project>
