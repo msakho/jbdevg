@@ -10,9 +10,10 @@ import org.infinispan.configuration.cache.ConfigurationBuilder;
 import org.infinispan.manager.DefaultCacheManager;
 
 import com.beosbank.jbdevg.jbdatagrid.domain.MoneyTransfert;
+import com.beosbank.jbdevg.jbdatagrid.listener.DatagridListener;
 import com.mchange.io.FileUtils;
 
-public class EmbeddedCacheDemo {
+public class EmbeddedCacheListenerDemo {
 
 	private static final String INPUT_DIR = "src/main/resources/input/";
 
@@ -29,6 +30,7 @@ public class EmbeddedCacheDemo {
 			ConfigurationBuilder builder = new ConfigurationBuilder();
 			Cache<String, Object> cache = new DefaultCacheManager(builder.build()).getCache();
 			
+			cache.addListener(new DatagridListener());
 			//Read Transactions and put in cache
 			for (String inputFile : inputFileNames) {
 				record = FileUtils.getContentsAsString(new File(INPUT_DIR + inputFile));
