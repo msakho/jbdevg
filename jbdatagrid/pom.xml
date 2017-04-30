@@ -21,6 +21,7 @@
 
 	<modules>
 		<module>beosbank-datagrid-labs</module>
+		<module>beosbank-datagrid-cluster</module>
 	</modules>
 
 	<dependencyManagement>
