@@ -195,6 +195,12 @@ public class MoneyTransfert implements Serializable {
 
 	
 
+	
+	public String getDescription(){
+		
+		return "MoneyTransfert [id=" + id + " From: "+sender.getAddress().getCountry()+" To:"+receiver.getAddress().getCountry()+
+				"  Amount:"+amountExcludingFees +" "+senderCurrencyCode +"]";
+	}
 
 
 

@@ -14,7 +14,7 @@ import com.beosbank.jbdevg.jbdatagrid.domain.MoneyTransfert;
 import com.beosbank.jbdevg.jbdatagrid.listener.DatagridListener;
 import com.mchange.io.FileUtils;
 
-public class DistributedCacheClusterDemo {
+public class DistributedCacheStreamDemo {
 
 	private static final String INPUT_DIR = "src/main/resources/input/";
 	private static String[] inputFileNames = { "data1.xml", "data2.xml", "data3.xml", "data4.xml", "data5.xml" };
@@ -62,7 +62,7 @@ public class DistributedCacheClusterDemo {
 			
 			//Current node content
 			cache.getAdvancedCache().withFlags(Flag.SKIP_REMOTE_LOOKUP)
-	         .entrySet().forEach(entry -> System.out.printf("%s = %s\n", entry.getKey(), entry.getValue()));
+	         .entrySet().forEach(entry -> System.out.printf("%s = %s\n", entry.getKey(), entry.getValue().getDescription()));
 			
 			
 			
