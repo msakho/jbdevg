@@ -35,7 +35,7 @@ public class DistributedExecutorClusterDemo {
 			
 			
 			//cache inspection
-			System.out.println("Cache inspection to transactions status");
+			System.out.println("Cache inspection to check status before task");
 			System.out.println(cache.get(1l).getDescription());
 			System.out.println(cache.get(2l).getDescription());
 			
@@ -50,7 +50,7 @@ public class DistributedExecutorClusterDemo {
 		
 			
 			//cache inspection
-			System.out.println("Cache inspection to check Task updates");
+			System.out.println("Cache inspection to check Task status updates");
 			System.out.println(cache.get(1l).getDescription());
 			System.out.println(cache.get(2l).getDescription());
 
