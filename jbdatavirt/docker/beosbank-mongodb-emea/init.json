@@ -4,7 +4,8 @@
   "name": "Cameroon",
   "country_code": "00237",
   "country_iso": "CM",
-  "area": "Africa"
+  "area": "Africa",
+  "feesRate":1.2
 }
 {
      "vatRate": 20.00,
@@ -12,5 +13,6 @@
     "name": "FRANCE",
      "country_code": "0033",
      "country_iso": "FR",
-     "area":"Europa"
+     "area":"Europa",
+     "feesRate":1.5
 }
