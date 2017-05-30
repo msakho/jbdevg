@@ -27,7 +27,11 @@
 
 
 	<properties>
-		<fabric8.features> pax-jdbc-mysql camel-infinispan</fabric8.features>
+		<fabric8.features> pax-jdbc-mysql camel-jdbc  camel-infinispan infinispan-client-hotrod</fabric8.features>
+		<fabric8.featureRepos>
+			 mvn:org.ops4j.pax.jdbc/pax-jdbc-features/1.1.0/xml/features
+			 mvn:org.infinispan/infinispan-client-hotrod/8.3.0.Final-redhat-1/xml/features
+		 </fabric8.featureRepos>
 	</properties>
 
 

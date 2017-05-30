@@ -15,8 +15,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<camel.version>2.17.0.redhat-630187</camel.version>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<camel.version>2.17.0.redhat-630187</camel.version>
 		<version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
 		<jboss.fuse.bom.version>6.3.0.redhat-187</jboss.fuse.bom.version>
 		<maven-resources-plugin-version>2.6</maven-resources-plugin-version>

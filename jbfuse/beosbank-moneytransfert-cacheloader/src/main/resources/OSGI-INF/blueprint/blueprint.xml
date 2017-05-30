@@ -2,7 +2,6 @@
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
     xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 https://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
-   
     <!-- OSGI blueprint property placeholder -->
     <cm:property-placeholder id="beosbank.placeholder" persistent-id="com.beosbank.esb.env.cfg">
         <cm:default-properties>
@@ -13,8 +12,6 @@
             <cm:property name="datagrid.host.Africa" value="127.0.0.1:11322"/>
         </cm:default-properties>
     </cm:property-placeholder>
-    
-    
     <camelContext id="beosbank-moneytransfert-cacheloader"
         xmlns="http://camel.apache.org/schema/blueprint" xmlns:order="http://fabric8.com/examples/order/v7">
         <route customId="true" id="mysqldb-africa-esblistener">
@@ -27,18 +24,15 @@
             <split id="_split1">
                 <simple>${body}</simple>
                 <process id="afProcessorCall" ref="afTrxProcessor"/>
-                <to id="sendToBeosBankCache" uri="infinispan://{{datagrid.host.Africa}}?cacheName=beosbank-dist&amp;command=PUT" />
+                <to id="sendToBeosBankCache" uri="infinispan://{{datagrid.host.Africa}}?cacheName=beosbank-dist&amp;command=PUT"/>
                 <log customId="true" id="logAfterCaching" message="New Cache Entry: ${body} "/>
             </split>
         </route>
     </camelContext>
-    
     <!-- AF Transactions Processor -->
-    <bean id="afTrxProcessor" class="com.beosbank.jbdevg.jbfuse.cacheloader.processor.AFProcessor"/>
-    
+    <bean class="com.beosbank.jbdevg.jbfuse.cacheloader.processor.AFProcessor" id="afTrxProcessor"/>
     <!-- MYSQL Data source -->
-    
-    <bean id="beosbank-africa-mysql-ds" class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" >
+    <bean class="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" id="beosbank-africa-mysql-ds">
         <property name="databaseName" value="${db.databaseName}"/>
         <property name="url" value="${db.url}"/>
         <property name="user" value="${db.user}"/>
