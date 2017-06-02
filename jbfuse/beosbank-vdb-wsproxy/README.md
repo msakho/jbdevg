@@ -17,8 +17,9 @@ $ cd jbdevg/jbdatavirt/docker/
 $ docker-compose up 
 
 # Start the VDB
-cd books/jbdevg/BeosBankDataVirtLab/install/dv63
-bin/standalone.sh
+
+	cd books/jbdevg/BeosBankDataVirtLab/install/dv63
+	bin/standalone.sh
 
 17:20:24,166 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS015859: Déploiement de "beosbank.vdb" (runtime-name: "beosbank.vdb
 
