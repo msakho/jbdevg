@@ -27,7 +27,7 @@
     
     
     <camelContext id="beosbank-vdb-wsproxy"
-        xmlns="http://camel.apache.org/schema/blueprint" xmlns:order="http://fabric8.com/examples/order/v7">
+        xmlns="http://camel.apache.org/schema/blueprint">
        
         <route customId="true" id="vdb-proxy-route">
             <from uri="jetty://{{proxy.httpBaseUrl}}/{{proxy.uri}}?matchOnUriPrefix=true"/>
