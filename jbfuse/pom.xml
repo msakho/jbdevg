@@ -25,6 +25,7 @@
 	<modules>
 		<module>beosbank-moneytransfert-cacheloader</module>
 		<module>beosbank-vdb-wsproxy</module>
+		<module>beosbank-file-processor</module>
 	</modules>
 
 	<dependencyManagement>
