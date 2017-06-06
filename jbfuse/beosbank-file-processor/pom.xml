@@ -12,7 +12,7 @@
 	</parent>
 	<artifactId>beosbank-file-processor</artifactId>
 	<url>http://maven.apache.org</url>
-	<version>1.0.0-rc8</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 	<name>BeosBank File processor</name>
 	<description>ESB Flow to process beosbank Files</description>
