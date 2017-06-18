@@ -28,6 +28,7 @@
     <module>jbdeploy</module>
     <module>jbdatagrid</module> 
     <module>jbdatavirt</module>
-    <module>jbfuse</module> 
+    <module>jbfuse</module>
+    <module>jbamq</module> 
 </modules>
 </project>
