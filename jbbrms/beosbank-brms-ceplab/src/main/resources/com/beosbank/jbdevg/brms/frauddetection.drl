@@ -1,0 +1,22 @@
+package com.beosbank.jbdevg
+ 
+import com.beosbank.jbdevg.brms.model.MoneyTransfertEvent
+
+no-loop
+
+
+declare MoneyTransfertEvent
+    @role(event)
+end
+
+
+rule "Detect Potential Fraud In Sucessive MoneyTransfert a day"
+
+    when 
+        $trx1: MoneyTransfertEvent($ref1:reference, $s1: sender, $c1:countryFrom) 
+        $trx2: MoneyTransfertEvent( this after[1ms,48h] $trx1, $ref2:reference,$s2:sender, $c2:countryFrom,$s1==$s2,$c1!=$c2) 
+    then
+       System.out.println("Transactions sent from  two countries in 48h ("+ $ref1 +","+$c1+") ("+ $ref2 +","+$c2+")");
+       
+end
+
